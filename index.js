@@ -14,7 +14,6 @@ redisClient.on("connect", () => {
   console.log("Connected to Redis!");
 });
 
-
 const app = express();
 
 // Set response
@@ -72,6 +71,7 @@ async function cache(req, res, next) {
   }
 }
 
+// Get request with Cache middleware
 app.get("/repos/:username", cache, getRepos);
 
 app.listen(PORT, () => {
